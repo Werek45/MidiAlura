@@ -4,9 +4,13 @@ function tocaSom (idElementoAudio) {
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
-let cont = 0;
+for (let contador = 0; contador < listaDeTeclas.length; contador++ ) {
 
-while (cont < listaDeTeclas.length) {
-    listaDeTeclas[cont].onclick = tocaSom;
-    cont = cont + 1;
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`;
+    
+    tecla.onclick = function () {
+        tocaSom(idAudio)
+    };
 }
